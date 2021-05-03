@@ -17,12 +17,11 @@
     <!-- make an intermediary login/signup page with link options for each -->
     <nav>
       <a href="/">Home</a>
-      {{!-- {{#if logged_in}}
-      <button id="logout">Log Out</button>
+      {{#if logged_in}}
+      <a href="" id="logout">Log Out</a>
       {{else}}
-      <button id="login">Log In</button>
-      <button id="signup">Sign Up</button>
-       {{/if}} --}}
+      <a href="/login">Log In</a>
+       {{/if}}
        <a href="/dashboard">Dashboard</a>
     </nav>
   </header>
