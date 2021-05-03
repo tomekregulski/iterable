@@ -6,7 +6,7 @@ const { User, Blog } = require("../models");
 router.get("/", withAuth, async (req, res) => {
   try {
     const userData = await Blog.findAll({
-      order: [["name", "ASC"]],
+      order: [["title", "ASC"]],
     });
 
     const blogs = userData.map((blog) => blog.get({ plain: true }));

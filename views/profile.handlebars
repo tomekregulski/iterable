@@ -1,0 +1,16 @@
+<section>
+    <header>{{user.name}}</header>
+
+    <div>
+      <p>{{user.name}} Profile</p>
+    </div>
+</section>
+<section>
+    {{#each blogs as |blog| }}
+<div>
+  <div>
+    <h2>{{blog.title}}</h2>
+  </div>
+</div>
+{{/each}}
+</section>

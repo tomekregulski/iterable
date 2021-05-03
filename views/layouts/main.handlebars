@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registry</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <header>
+    <h1>
+      Site Name
+    </h1>
+    <!-- If the user is logged in, display the logout button-->
+    {{#if logged_in}}
+    <nav>
+      <button id="logout">logout</button>
+    </nav>
+    {{/if}}
+  </header>
+  <main>
+    {{{ body }}}
+  </main>
+  <footer>
+      
+  </footer>
+  <!-- if logged in, connect the logout script -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>
