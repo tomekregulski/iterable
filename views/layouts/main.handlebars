@@ -19,10 +19,11 @@
       <a href="/">Home</a>
       {{#if logged_in}}
       <a href="" id="logout">Log Out</a>
-      {{else}}
+      {{/if}}
+      {{#unless logged_in}}
       <a href="/login">Log In</a>
-       {{/if}}
-       <a href="/dashboard">Dashboard</a>
+       {{/unless}}
+       <a href="/dashboard/{{user_id}}">Dashboard</a>
     </nav>
   </header>
   <main>

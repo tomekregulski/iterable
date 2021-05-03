@@ -1,16 +1,6 @@
-<section>
-    <p>{{user.name}}</p>
-
-    <div>
-      <p>{{user.name}} Dashboard</p>
-    </div>
-</section>
-<section>
-    {{#each blogs as |blog| }}
+{{#each userBlogs as |blog|}}
 <div>
-  <div>
     <h2>{{blog.title}}</h2>
-  </div>
+    <p>{{blog.content}}</p>
 </div>
 {{/each}}
-</section>
