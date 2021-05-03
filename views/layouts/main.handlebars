@@ -16,7 +16,11 @@
     <!-- If the user is logged in, display the logout button-->
     {{#if logged_in}}
     <nav>
-      <button id="logout">logout</button>
+      <button id="logout">Log Out</button>
+    </nav>
+    {{else}}
+    <nav>
+      <button id="login">Log In</button>
     </nav>
     {{/if}}
   </header>

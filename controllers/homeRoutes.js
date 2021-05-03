@@ -34,7 +34,7 @@ router.get("/blog/:id", async (req, res) => {
   }
 });
 
-router.get("/profile/", withAuth, async (req, res) => {
+router.get("/dashboard/", withAuth, async (req, res) => {
   try {
     const dbUserData = await User.findByPk(req.session.user_id);
 
@@ -48,7 +48,7 @@ router.get("/profile/", withAuth, async (req, res) => {
     //   project.get({ plain: true })
     // );
 
-    res.render("profile", { user });
+    res.render("dashboard", { user });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
