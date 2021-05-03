@@ -1,21 +1,21 @@
-const sequelize = require("../config/connection.js");
+const sequelize = require("../config/connection");
 const { Comment } = require("../models");
 
 const commentData = [
   {
-    userId: 1,
-    postId: 2,
-    commentContent: "Awesome, thanks for sharing!",
+    user_id: 1,
+    blog_id: 2,
+    content: "Awesome, thanks for sharing!",
   },
   {
-    userId: 2,
-    postId: 1,
-    commentContent: "Great perspective.",
+    user_id: 2,
+    blog_id: 1,
+    content: "Great perspective.",
   },
   {
-    userId: 1,
-    postId: 1,
-    commentContent: "Glad you liked it!",
+    user_id: 1,
+    blog_id: 1,
+    content: "Glad you liked it!",
   },
 ];
 
