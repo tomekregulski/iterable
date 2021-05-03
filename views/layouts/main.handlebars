@@ -14,8 +14,9 @@
       Site Name
     </h1>
     <!-- If the user is logged in, display the logout button-->
-    
-    {{!-- <nav>
+    <!-- make an intermediary login/signup page with link options for each -->
+    <nav>
+      <a href="/">Home</a>
       {{#if logged_in}}
       <button id="logout">Log Out</button>
       {{else}}
@@ -23,17 +24,11 @@
       <button id="signup">Sign Up</button>
        {{/if}}
        <a href="/dashboard/">Dashboard</a>
-    </nav> --}}
-    {{> navbar}}
-
-
+    </nav>
   </header>
   <main>
     {{{ body }}}
   </main>
-  <footer>
-      
-  </footer>
   <!-- if logged in, connect the logout script -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
