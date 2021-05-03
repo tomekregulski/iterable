@@ -14,15 +14,19 @@
       Site Name
     </h1>
     <!-- If the user is logged in, display the logout button-->
-    {{#if logged_in}}
-    <nav>
+    
+    {{!-- <nav>
+      {{#if logged_in}}
       <button id="logout">Log Out</button>
-    </nav>
-    {{else}}
-    <nav>
+      {{else}}
       <button id="login">Log In</button>
-    </nav>
-    {{/if}}
+      <button id="signup">Sign Up</button>
+       {{/if}}
+       <a href="/dashboard/">Dashboard</a>
+    </nav> --}}
+    {{> navbar}}
+
+
   </header>
   <main>
     {{{ body }}}
