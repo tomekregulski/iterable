@@ -36,7 +36,6 @@ router.get("/:id", withAuth, async (req, res) => {
     res.render("dashboard", {
       user,
       userBlogs,
-      comments,
       logged_in: true,
     });
   } catch (err) {

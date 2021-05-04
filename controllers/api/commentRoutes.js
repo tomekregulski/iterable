@@ -21,7 +21,7 @@ router.post("/:userid/:blogid", async (req, res) => {
     const newComment = await Comment.create({
       user_id: req.params.userid,
       blog_id: req.params.blogid,
-      comment_content: req.body.comment_content,
+      content: req.body.content,
     });
     res.status(200).json(newComment);
   } catch (err) {
@@ -34,7 +34,7 @@ router.put("/:id", async (req, res) => {
   try {
     const updatedComment = await Comment.update(
       {
-        comment_content: req.body.comment_content,
+        content: req.body.content,
       },
       {
         where: {

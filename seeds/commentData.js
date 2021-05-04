@@ -5,17 +5,17 @@ const commentData = [
   {
     user_id: 1,
     blog_id: 2,
-    comment_content: "Awesome, thanks for sharing!",
+    content: "Awesome, thanks for sharing!",
   },
   {
     user_id: 2,
     blog_id: 1,
-    comment_content: "Great perspective.",
+    content: "Great perspective.",
   },
   {
     user_id: 1,
     blog_id: 1,
-    comment_content: "Glad you liked it!",
+    content: "Glad you liked it!",
   },
 ];
 
