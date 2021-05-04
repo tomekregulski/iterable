@@ -1,28 +1,30 @@
 console.log("hello!");
 
-const commentFormHandler = async (event) => {
+const createComment = async (event) => {
   event.preventDefault();
-  console.log("hello");
 
-  const commentText = document.getElementById("comment-text");
-  // const user_id = req.session.user_id;
-  // const blog_id = console.log(commentText);
+  console.log("hi again");
+  const content = document.getElementById("comment-text").value;
+  console.log(content);
+  const url = window.location.href;
+  console.log(url);
+  const split_url = url.split("blogs/");
+  console.log(split_url);
+  const blog_id = split_url[1][0];
+  console.log(blog_id);
 
-  if (commentText) {
-    const response = await fetch("/api/comments", {
-      method: "POST",
-      body: JSON.stringify({ commentText }),
-      headers: { "Content-Type": "application/json" },
-    });
-
-    if (response.ok) {
-      document.location.replace("/");
-    } else {
-      alert("Failed to post comment.");
-    }
+  const response = await fetch("/api/comments/", {
+    method: "POST",
+    body: JSON.stringify({ blog_id, content }),
+    headers: { "Content-Type": "application/json" },
+  });
+  if (response.ok) {
+    document.location.reload();
+  } else {
+    alert("Failed to create comment.");
   }
 };
 
 document
   .getElementById("submit-comment")
-  .addEventListener("submit", commentFormHandler);
+  .addEventListener("click", createComment);

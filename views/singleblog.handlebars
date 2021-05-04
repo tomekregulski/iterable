@@ -6,16 +6,4 @@
   <p>{{singleBlogData.content}}</p>
 </div>
 
-<div>
-  <form>
-    <div>
-      <label for="comment-text">Add a comment:</label>
-      <textarea id="comment-text" name="comment-text" rows="5" cols="33"></textarea>
-    </div>
-    <div>
-      <button type="submit" id="submit-comment">Submit</button>
-    </div>
-  </form>
-</div>
-
-  <script src="/js/newComment.js"></script>
+{{> post-comment}}
