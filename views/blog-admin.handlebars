@@ -3,7 +3,8 @@
 
 <div>
   <p>{{singleBlogData.content}}</p>
+  <p>{{singleBlogData.id}}</p>
 </div>
 
-<button href="/edit-blog">Edit</button>
+<a href="/blogs/admin/edit/{{singleBlogData.id}}">Edit</a>
 <button href="/delete-blog">Delete</button>
