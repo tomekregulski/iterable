@@ -25,13 +25,13 @@ router.get("/:id", withAuth, async (req, res) => {
 
     const userBlogs = blogData.map((blog) => blog.get({ plain: true }));
 
-    const commentData = await Comment.findAll({
-      where: {
-        blog_id: req.params.id,
-      },
-    });
+    // const commentData = await Comment.findAll({
+    //   where: {
+    //     blog_id: req.params.id,
+    //   },
+    // });
 
-    const comments = commentData.map((comment) => comment.get({ plain: true }));
+    // const comments = commentData.map((comment) => comment.get({ plain: true }));
 
     res.render("dashboard", {
       user,

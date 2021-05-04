@@ -24,4 +24,33 @@ router.get("/", async (req, res) => {
   }
 });
 
+// router.get("/", (req, res) => {
+//   // if a session exists and user is logged in, redirect them to their profile
+//   res.render("login");
+// });
+
+router.get("/login", async (req, res) => {
+  try {
+    res.status(200).render("login");
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.get("/signup", async (req, res) => {
+  try {
+    res.status(200).render("signup");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/logout", async (req, res) => {
+  try {
+    res.status(200).json("Logged out!");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
