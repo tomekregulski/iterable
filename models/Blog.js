@@ -28,10 +28,15 @@ Blog.init(
       allowNull: false,
       defaultValue: "Enter your blog text.",
     },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
   },
   {
     sequelize,
-    timestamps: true,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "blog",
