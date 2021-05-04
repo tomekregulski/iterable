@@ -1,3 +1,5 @@
+console.log("hello!");
+
 const loginFormHandler = async (event) => {
   // prevets the page from refreshing when the login credentials are submitted
   event.preventDefault();

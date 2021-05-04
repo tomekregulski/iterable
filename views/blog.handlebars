@@ -1,6 +1,20 @@
 <h2>{{singleBlogData.title}}</h2>
 <h3>By: {{singleBlogData.blog_author.username}}</h3>
 
-<div class="card-body">
+<div>
   <p>{{singleBlogData.content}}</p>
 </div>
+
+<div>
+  <form>
+    <div>
+      <label for="comment-text">Add a comment:</label>
+      <textarea id="comment-text" name="comment-text" rows="5" cols="33"></textarea>
+    </div>
+    <div>
+      <button type="submit" id="submit-comment">Submit</button>
+    </div>
+  </form>
+</div>
+
+  <script src="/js/newComment.js"></script>

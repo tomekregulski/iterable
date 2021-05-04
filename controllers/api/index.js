@@ -4,5 +4,6 @@ const blogRoutes = require("./blogRoutes");
 
 router.use("/users", userRoutes);
 router.use("/blogs", blogRoutes);
+router.use("/comments", blogRoutes);
 
 module.exports = router;
