@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../../utils/auth");
-const { Blog } = require("../../models");
+const { User, Blog, Comment } = require("../../models");
 
 // router.post("/", withAuth, async (req, res) => {
 //   try {
@@ -15,18 +15,19 @@ const { Blog } = require("../../models");
 //   }
 // });
 
+// COMMENTS ARE NOT BEING PULLED THROUGH
 router.get("/", async (req, res) => {
   try {
-    const allPosts = await Post.findAll({
+    const allBlogs = await Blog.findAll({
       include: [
         {
           model: User,
-          as: "post_author",
+          as: "blog_author",
           attributes: ["username"],
         },
         {
           model: Comment,
-          as: "post_comments",
+          as: "blog_comments",
           include: {
             model: User,
             as: "comment_author",
@@ -35,30 +36,61 @@ router.get("/", async (req, res) => {
         },
       ],
     });
-    const postsData = allPosts.map((post) => post.get({ plain: true }));
-    res.status(200).json(postsData);
+    const blogData = allBlogs.map((blog) => blog.get({ plain: true }));
+    res.status(200).json(blogData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          as: "blog_author",
+          attributes: ["username"],
+        },
+        {
+          model: Comment,
+          as: "blog_comments",
+          include: {
+            model: User,
+            as: "comment_author",
+            attributes: ["username"],
+          },
+        },
+      ],
+    });
+
+    const singleBlogData = blogData.get({ plain: true });
+    res.status(200).json(singleBlogData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// WORKING
 router.post("/", async (req, res) => {
   try {
-    const newPost = await Post.create({
+    const newBlog = await Blog.create({
       user_id: req.body.user_id,
-      blog_content: req.body.blog_content,
+      title: req.body.title,
+      content: req.body.content,
     });
-    res.status(200).json(newPost);
+    res.status(200).json(newBlog);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+// WORKING
 router.put("/:id", async (req, res) => {
   try {
-    const updatedPost = await Post.update(
+    const updatedBlog = await Blog.update(
       {
-        blog_content: req.body.blog_content,
+        content: req.body.content,
       },
       {
         where: {
@@ -66,12 +98,13 @@ router.put("/:id", async (req, res) => {
         },
       }
     );
-    res.status(200).json(updatedPost);
+    res.status(200).json(updatedBlog);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
+// NOT WORKING
 router.delete("/:id", async (req, res) => {
   try {
     const blogData = await Blog.destroy({
