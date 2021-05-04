@@ -13,18 +13,7 @@
     <h1>
       Site Name
     </h1>
-    <!-- If the user is logged in, display the logout button-->
-    <!-- make an intermediary login/signup page with link options for each -->
-    <nav>
-      <a href="/">Home</a>
-      {{#if logged_in}}
-      <a href="" id="logout">Log Out</a>
-      {{/if}}
-      {{#unless logged_in}}
-      <a href="/login">Log In</a>
-       {{/unless}}
-       <a href="/dashboard/{{user_id}}">Dashboard</a>
-    </nav>
+    {{> nav}}
   </header>
   <main>
     {{{ body }}}

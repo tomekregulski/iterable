@@ -24,7 +24,7 @@ router.get("/:id", async (req, res) => {
 
     const singleBlogData = blogData.get({ plain: true });
 
-    res.render("blog", { singleBlogData });
+    res.render("singleblog", { singleBlogData });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

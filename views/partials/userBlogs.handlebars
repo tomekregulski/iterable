@@ -1,0 +1,11 @@
+{{#each userBlogs as |userBlog|}}
+<div>
+    <a href="/blogs/{{userBlog.id}}"><h2>{{userBlog.title}}</h2></a>
+    <p>{{userBlog.content}}</p>
+</div>
+<div>
+    {{#each comments as |comment|}}
+    <p>{{comment.content}}</p>
+    {{/each}}
+</div>
+{{/each}}
