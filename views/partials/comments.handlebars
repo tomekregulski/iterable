@@ -1,8 +1,8 @@
-{{#each comments as |comment| }}
+{{#each blogComments as |comment| }}
 <div>
   <div>
-    <p>Author: {{comment_author.username}}</p>
-    <p>Author: {{comment.content}}</p>
+    <p>Author: {{comment.user_id}}</p>
+    <p>{{comment.content}}</p>
   </div>
 </div>
 {{/each}}

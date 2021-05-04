@@ -34,7 +34,17 @@ router.get("/:id", async (req, res) => {
 
     const singleBlogData = blogData.get({ plain: true });
 
-    res.render("singleblog", { singleBlogData });
+    const commentsData = await Comment.findAll({
+      where: {
+        blog_id: req.params.id,
+      },
+    });
+
+    const blogComments = commentsData.map((comment) =>
+      comment.get({ plain: true })
+    );
+
+    res.render("singleblog", { singleBlogData, blogComments });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
