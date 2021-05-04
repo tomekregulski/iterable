@@ -22,9 +22,9 @@ router.get("/:id", async (req, res) => {
       ],
     });
 
-    const blogBLOG = blogData.get({ plain: true });
+    const singleBlogData = blogData.get({ plain: true });
 
-    res.render("blog", { blogBLOG });
+    res.render("blog", { singleBlogData });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
