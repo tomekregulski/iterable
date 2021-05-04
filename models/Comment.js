@@ -27,7 +27,7 @@ Comment.init(
         key: "id",
       },
     },
-    content: {
+    comment_content: {
       type: DataTypes.TEXT,
       allowNull: false,
       defaultValue: "Enter your comment.",

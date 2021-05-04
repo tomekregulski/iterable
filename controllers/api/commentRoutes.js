@@ -1,12 +1,27 @@
+// const { Comment, User, Blog } = require("../../models");
+// const router = require("express").Router();
+
 const { Comment } = require("../../models");
 const router = require("express").Router();
 
-router.post("/:user_id/:blog_id", async (req, res) => {
+// WORKING
+router.get("/", async (req, res) => {
+  try {
+    const allComments = await Comment.findAll();
+    const commentData = allComments.map((user) => user.get({ plain: true }));
+    res.status(200).json(commentData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// WORKING
+router.post("/:userid/:blogid", async (req, res) => {
   try {
     const newComment = await Comment.create({
-      user_id: req.params.user_id,
-      blog_id: req.params.blog_id,
-      content: req.body.content,
+      user_id: req.params.userid,
+      blog_id: req.params.blogid,
+      comment_content: req.body.comment_content,
     });
     res.status(200).json(newComment);
   } catch (err) {
@@ -14,12 +29,12 @@ router.post("/:user_id/:blog_id", async (req, res) => {
   }
 });
 
-// Update a comment by id
+// WORKING
 router.put("/:id", async (req, res) => {
   try {
     const updatedComment = await Comment.update(
       {
-        content: req.body.content,
+        comment_content: req.body.comment_content,
       },
       {
         where: {
@@ -33,7 +48,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// Deletes comment by id
+// WORKING
 router.delete("/:id", async (req, res) => {
   try {
     const deletedComment = await Comment.destroy({
@@ -46,3 +61,5 @@ router.delete("/:id", async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+module.exports = router;
