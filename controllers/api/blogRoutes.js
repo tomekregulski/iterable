@@ -103,6 +103,7 @@ router.put("/:id", async (req, res) => {
   try {
     const updatedBlog = await Blog.update(
       {
+        title: req.body.title,
         content: req.body.content,
       },
       {

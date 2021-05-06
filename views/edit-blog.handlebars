@@ -1,23 +1,24 @@
-<p>Edit</p>
-
-<div>
-  <div>
-    <h3>Edit Your Blog</h3>
-
-    <form>
-      {{!-- <div>
-        <label for="blog-title">blog title:</label>
-        <input type="text" id="blog-title" name="blog-title" />
-      </div> --}}
-      <div>
-        <label for="blog-content">content:</label>
-        <textarea id="blog-content" name="blog-content" rows="5" cols="33"></textarea>
+<div class="row mt-4">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <div class="text-center">
+      <h3>Edit "{{editSingleBlogData.title}}"</h3>
+    </div>
+    <form class="mt-4">
+      <div class="form-group">
+        <label for="blog-title"><strong>Title:</strong></label>
+        <input type="text" class="form-control" id="edit-blog-title" name="blog-title" value="{{editSingleBlogData.title}}">
+      </div>
+      <div class="form-group">
+        <label for="blog-content"><strong>Content:</strong></label>
+        <textarea class="form-control mt-1" id="edit-blog-content" name="blog-content" rows="3">{{editSingleBlogData.content}}</textarea>
       </div>
       <div>
-        <button type="submit" id="submit-blog">Create</button>
+        <button type="submit" class="btn btn-primary btn-lg" id="submit-edit-blog">Submit Changes</button>
       </div>
     </form>
   </div>
+  <div class="col-3"></div>
 </div>
 
-<script src="/js/newBlog.js"></script>
+<script src="/js/editBlog.js"></script>
