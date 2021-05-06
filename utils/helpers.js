@@ -7,4 +7,7 @@ module.exports = {
       date
     ).getDate()}/${new Date(date).getFullYear()}`;
   },
+  is_equal: (a, b) => {
+    return a === b;
+  },
 };

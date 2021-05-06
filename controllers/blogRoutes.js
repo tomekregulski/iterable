@@ -18,7 +18,7 @@ router.get("/:id", async (req, res) => {
         {
           model: User,
           as: "blog_author",
-          attributes: ["username"],
+          attributes: ["username", "id"],
         },
       ],
     });
@@ -30,7 +30,7 @@ router.get("/:id", async (req, res) => {
         {
           model: User,
           as: "comment_author",
-          attributes: ["username"],
+          attributes: ["username", "id"],
         },
       ],
       where: {
@@ -42,7 +42,12 @@ router.get("/:id", async (req, res) => {
       comment.get({ plain: true })
     );
 
-    res.render("singleblog", { singleBlogData, blogComments });
+    res.render("singleblog", {
+      singleBlogData,
+      blogComments,
+      user_id: req.session.user_id,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
