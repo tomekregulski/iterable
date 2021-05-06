@@ -1,10 +1,12 @@
-<nav>
+<nav class="d-flex flex-column align-items-center mt-3 flex-md-row justify-content-md-center">
     <a href="/">Home</a>
     {{#if logged_in}}
     <a href="" id="logout">Log Out</a>
     {{/if}}
     {{#unless logged_in}}
-    <a href="/login">Log In</a>
+    <a href="/login" class="ml-md-3">Log In</a>
     {{/unless}}
-    <a href="/dashboard/{{user_id}}">Dashboard</a>
+    <a href="/dashboard/{{user_id}}" class="ml-md-3">Dashboard</a>
 </nav>
+
+{{!-- USER ID IS THE ISSUE AND THE SOLUTION --}}

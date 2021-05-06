@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
 });
 
 // WORKING
-router.post("/:userid/:blogid", async (req, res) => {
+router.post("/:user_id/:blog_id", async (req, res) => {
   try {
     const newComment = await Comment.create({
       user_id: req.params.userid,

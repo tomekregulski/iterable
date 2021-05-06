@@ -13,7 +13,7 @@ const createComment = async (event) => {
   const blog_id = split_url[1][0];
   console.log(blog_id);
 
-  const response = await fetch("/api/comments/", {
+  const response = await fetch(`/api/comments/1/${blog_id}`, {
     method: "POST",
     body: JSON.stringify({ blog_id, content }),
     headers: { "Content-Type": "application/json" },
