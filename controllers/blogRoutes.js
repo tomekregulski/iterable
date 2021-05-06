@@ -20,21 +20,19 @@ router.get("/:id", async (req, res) => {
           as: "blog_author",
           attributes: ["username"],
         },
-        {
-          model: Comment,
-          as: "blog_comments",
-          include: {
-            model: User,
-            as: "comment_author",
-            attributes: ["username"],
-          },
-        },
       ],
     });
 
     const singleBlogData = blogData.get({ plain: true });
 
     const commentsData = await Comment.findAll({
+      include: [
+        {
+          model: User,
+          as: "comment_author",
+          attributes: ["username"],
+        },
+      ],
       where: {
         blog_id: req.params.id,
       },
@@ -60,15 +58,6 @@ router.get("/admin/:id", withAuth, async (req, res) => {
           as: "blog_author",
           attributes: ["username"],
         },
-        {
-          model: Comment,
-          as: "blog_comments",
-          include: {
-            model: User,
-            as: "comment_author",
-            attributes: ["username"],
-          },
-        },
       ],
     });
 
@@ -83,7 +72,6 @@ router.get("/admin/:id", withAuth, async (req, res) => {
     const blogComments = commentsData.map((comment) =>
       comment.get({ plain: true })
     );
-    // res.render("blog-admin");
     res.render("blog-admin", { singleBlogData, blogComments });
   } catch (err) {
     console.log(err);

@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3001;
 
 const sess = {
   secret: "Super secret secret",
-  cookie: { expires: new Date(Date.now() + 10000) },
+  cookie: { expires: new Date(Date.now() + 600000) },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
