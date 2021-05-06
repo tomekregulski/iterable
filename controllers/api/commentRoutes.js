@@ -16,11 +16,11 @@ router.get("/", async (req, res) => {
 });
 
 // WORKING
-router.post("/:user_id/:blog_id", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const newComment = await Comment.create({
-      user_id: req.params.userid,
-      blog_id: req.params.blogid,
+      user_id: req.body.user_id,
+      blog_id: req.body.blog_id,
       content: req.body.content,
     });
     res.status(200).json(newComment);
