@@ -73,8 +73,18 @@ router.get("/admin/:id", withAuth, async (req, res) => {
     });
 
     const singleBlogData = blogData.get({ plain: true });
+
+    const commentsData = await Comment.findAll({
+      where: {
+        blog_id: req.params.id,
+      },
+    });
+
+    const blogComments = commentsData.map((comment) =>
+      comment.get({ plain: true })
+    );
     // res.render("blog-admin");
-    res.render("blog-admin", { singleBlogData });
+    res.render("blog-admin", { singleBlogData, blogComments });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
