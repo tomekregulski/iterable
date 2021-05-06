@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
     });
     req.session.save(() => {
       req.session.loggedIn = true;
-      res.status(200).json(newUserData);
+      res.status(200).redirect("/");
     });
   } catch (err) {
     res.status(500).json(err);
@@ -41,14 +41,14 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    // const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = await userData.checkPassword(req.body.password);
 
-    // if (!validPassword) {
-    //   res
-    //     .status(400)
-    //     .json({ message: "Incorrect email or PASSWORD, please try again" });
-    //   return;
-    // }
+    if (!validPassword) {
+      res
+        .status(400)
+        .json({ message: "Incorrect email or PASSWORD, please try again" });
+      return;
+    }
 
     req.session.save(() => {
       req.session.user_id = userData.id;
