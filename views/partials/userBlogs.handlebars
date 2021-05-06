@@ -1,6 +1,12 @@
 {{#each userBlogs as |userBlog|}}
-<div>
-    <a href="/blogs/admin/{{userBlog.id}}"><h2>{{userBlog.title}}</h2></a>
-    <p>{{userBlog.content}}</p>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="text-center border mx-3 mt-3 col-md-6">
+    <div class="mt-2">
+      <a href="/blogs/admin/{{userBlog.id}}"><h2>{{userBlog.title}}</h2></a>
+      <p class="mb-2">Created: {{format_date userBlog.date_created}}</p>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
 </div>
 {{/each}}
