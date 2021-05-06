@@ -1,13 +1,14 @@
-<div>
-  <form>
-    <div>
-      <label for="comment-text">Add a comment:</label>
-      <textarea id="comment-text" name="comment-text" rows="5" cols="33"></textarea>
-    </div>
-    <div>
-      <button type="submit" id="submit-comment">Submit</button>
-    </div>
+<div class="row">
+  <div class="col-4"></div>
+  <form class="col-4">
+    <div class="form-group">
+        <textarea class="form-control mt-4" id="comment-text" name="comment-text" rows="3" placeholder="Add a comment:"></textarea>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary" id="submit-comment">Submit</button>
+      </div>
   </form>
+  <div class="col-4"></div>
 </div>
 
 <script src="/js/newComment.js"></script>
