@@ -2,6 +2,15 @@ const router = require("express").Router();
 const withAuth = require("../utils/auth");
 const { User, Blog, Comment } = require("../models");
 
+router.get("/", async (req, res) => {
+  try {
+    res.render("login");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 router.get("/:id", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
