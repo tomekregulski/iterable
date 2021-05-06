@@ -1,9 +1,9 @@
 {{#each blogs as |blog| }}
-<div class="text-center">
-  <div>
+<div class="text-center border mx-3 mt-3">
+  <div class="mt-2">
     <a href="/blogs/{{id}}"><h2>{{blog.title}}</h2></a>
-    <p>Author: {{blog_author.username}}</p>
-    <p>Created: {{format_date blog.date_created}}</p>
+    <p class="mb-0">Author: {{blog_author.username}}</p>
+    <p class="mb-2">Created: {{format_date blog.date_created}}</p>
   </div>
 </div>
 {{/each}}
