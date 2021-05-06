@@ -1,10 +1,22 @@
-<h2>{{singleBlogData.title}}</h2>
-<p>Posted on: {{format_date singleBlogData.date_created}}</p>
+<section class="text-center">
+  <div class="mt-4">
+    <h3>{{singleBlogData.title}}</h3>
+    <p>
+      Posted on: {{format_date singleBlogData.date_created}}
+    </p>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="text-center mt-3 pt-3 border col-8">
+        <p>{{singleBlogData.content}}</p>
+        <p>{{singleBlogData.id}}</p>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </div>
+  <div class="mt-4">
+    <button class="btn btn-info"><a href="/blogs/admin/edit/{{singleBlogData.id}}" style="color: white">Edit</a></button>
+    <button class="btn btn-danger" id="delete-post" value={{singleBlogData.id}}>Delete</button>
+  </div>
+</section>
 
-<div>
-  <p>{{singleBlogData.content}}</p>
-  <p>{{singleBlogData.id}}</p>
-</div>
-
-<a href="/blogs/admin/edit/{{singleBlogData.id}}">Edit</a>
-<button href="/delete-blog">Delete</button>
+<script src="/js/deleteBLog.js"></script>
