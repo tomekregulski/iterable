@@ -3,6 +3,10 @@
   <div class="text-center mt-3 pt-3 border col-4">
     <p>From: {{comment_author.username}} {{comment_author.id}}</p>
     <p>{{content}}</p>
+    <p>From: {{comment_author.username}} {{comment_author.id}} {{user_id}}</p>
+    <p>{{comment_author.id}}</p>
+    <p>{{user_id}}</p>
+    <p>{{req.session.user_id}}</p> {{!-- blank --}}
         {{#if (is_equal user_id comment_author.id)}}
         <div class="mt-4">
           <button class="btn btn-info"><a href="/blogs/admin/edit/{{singleBlogData.id}}" style="color: white">Edit</a></button>
