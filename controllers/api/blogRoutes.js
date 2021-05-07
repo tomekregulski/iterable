@@ -42,7 +42,7 @@ router.get("/:id", async (req, res) => {
       comment.get({ plain: true })
     );
 
-    res.status(200).json(blogComments);
+    res.status(200).json(singleBlogData, blogComments);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

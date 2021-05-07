@@ -114,7 +114,6 @@ router.get("/admin/edit/:id", withAuth, async (req, res) => {
     });
 
     const editSingleBlogData = blogData.get({ plain: true });
-    // res.render("blog-admin");
     res.render("edit-blog", {
       editSingleBlogData,
       logged_in: req.session.logged_in,

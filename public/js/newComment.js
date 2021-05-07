@@ -12,7 +12,11 @@ const createComment = async (event) => {
   console.log(split_url);
   const blog_id = split_url[1][0];
   console.log(blog_id);
-  const user_id = 1;
+  const user_id = document
+    .getElementById("user")
+    .getAttribute("data-currentuser");
+  console.log(user_id);
+  console.log(user_id, blog_id, content);
 
   const response = await fetch(`/api/comments/`, {
     method: "POST",

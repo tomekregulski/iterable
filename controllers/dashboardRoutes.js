@@ -34,18 +34,9 @@ router.get("/", withAuth, async (req, res) => {
 
     const userBlogs = blogData.map((blog) => blog.get({ plain: true }));
 
-    // const commentData = await Comment.findAll({
-    //   where: {
-    //     blog_id: req.params.id,
-    //   },
-    // });
-
-    // const comments = commentData.map((comment) => comment.get({ plain: true }));
-
     res.render("dashboard", {
       user,
       userBlogs,
-      // logged_in: true,
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,
     });
