@@ -1,9 +1,13 @@
 <div class="row">
   <div class="col-4"></div>
   <div class="text-center mt-3 pt-3 border col-4">
-    <p>From: {{comment_author.username}}</p>
+    <p>From: {{comment_author.username}} {{comment_author.id}}</p>
     <p>{{content}}</p>
-    {{#if (is_equal ../../user_id comment_author.id)}}
+        {{#if (is_equal user_id comment_author.id)}}
+        <div class="mt-4">
+          <button class="btn btn-info"><a href="/blogs/admin/edit/{{singleBlogData.id}}" style="color: white">Edit</a></button>
+          <button class="btn btn-danger" id="delete-post" value={{singleBlogData.id}}>Delete</button>
+        </div>
       <h2>We did it!</h2>
     {{/if}}
   </div>
