@@ -4,7 +4,10 @@ const { User, Blog, Comment } = require("../models");
 
 router.get("/create", async (req, res) => {
   try {
-    res.render("new-blog");
+    res.render("new-blog", {
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -77,7 +80,12 @@ router.get("/admin/:id", withAuth, async (req, res) => {
     const blogComments = commentsData.map((comment) =>
       comment.get({ plain: true })
     );
-    res.render("blog-admin", { singleBlogData, blogComments });
+    res.render("blog-admin", {
+      singleBlogData,
+      blogComments,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -107,7 +115,11 @@ router.get("/admin/edit/:id", withAuth, async (req, res) => {
 
     const editSingleBlogData = blogData.get({ plain: true });
     // res.render("blog-admin");
-    res.render("edit-blog", { editSingleBlogData });
+    res.render("edit-blog", {
+      editSingleBlogData,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

@@ -21,8 +21,13 @@ router.post("/", async (req, res) => {
       password: req.body.password,
     });
     req.session.save(() => {
-      req.session.loggedIn = true;
-      res.status(200).redirect("/");
+      req.session.logged_in = true;
+      req.session.username = newUserData.username;
+      req.session.user_id = newUserData.id;
+      res.status(200).render("homepage", {
+        logged_in: req.session.logged_in,
+        user_id: req.session.user_id,
+      });
     });
   } catch (err) {
     res.status(500).json(err);
@@ -52,6 +57,7 @@ router.post("/login", async (req, res) => {
 
     req.session.save(() => {
       req.session.user_id = userData.id;
+      req.session.username = userData.username;
       req.session.logged_in = true;
 
       res

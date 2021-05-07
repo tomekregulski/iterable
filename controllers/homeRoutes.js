@@ -18,6 +18,7 @@ router.get("/", async (req, res) => {
       blogs,
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,
+      usersame: req.session.username,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -26,7 +27,12 @@ router.get("/", async (req, res) => {
 
 router.get("/login", async (req, res) => {
   try {
-    res.status(200).render("login");
+    if (req.session.logged_in) {
+      res.redirect("/");
+      return;
+    } else {
+      res.status(200).render("login");
+    }
   } catch (err) {
     res.status(400).json(err);
   }

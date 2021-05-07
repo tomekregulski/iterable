@@ -2,16 +2,16 @@ const router = require("express").Router();
 const withAuth = require("../utils/auth");
 const { User, Blog, Comment } = require("../models");
 
-router.get("/", async (req, res) => {
-  try {
-    res.render("login");
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+// router.get("/", async (req, res) => {
+//   try {
+//     res.render("login");
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
-router.get("/:id", withAuth, async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
@@ -45,7 +45,9 @@ router.get("/:id", withAuth, async (req, res) => {
     res.render("dashboard", {
       user,
       userBlogs,
-      logged_in: true,
+      // logged_in: true,
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
     });
   } catch (err) {
     console.log(err);
