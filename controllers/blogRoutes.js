@@ -7,6 +7,7 @@ router.get("/create", async (req, res) => {
     res.render("new-blog", {
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,
+      username: req.session.username,
     });
   } catch (err) {
     console.log(err);
@@ -48,8 +49,9 @@ router.get("/:id", async (req, res) => {
     res.render("singleblog", {
       singleBlogData,
       blogComments,
-      user_id: req.session.user_id,
       logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
+      username: req.session.username,
     });
   } catch (err) {
     console.log(err);
@@ -85,6 +87,7 @@ router.get("/admin/:id", withAuth, async (req, res) => {
       blogComments,
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,
+      username: req.session.username,
     });
   } catch (err) {
     console.log(err);
@@ -118,6 +121,7 @@ router.get("/admin/edit/:id", withAuth, async (req, res) => {
       editSingleBlogData,
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,
+      username: req.session.username,
     });
   } catch (err) {
     console.log(err);

@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
       blogs,
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,
-      usersame: req.session.username,
+      username: req.session.username,
     });
   } catch (err) {
     res.status(500).json(err);

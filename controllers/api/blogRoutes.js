@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const withAuth = require("../../utils/auth");
 const { User, Blog, Comment } = require("../../models");
 
 router.get("/:id", async (req, res) => {
@@ -11,15 +10,6 @@ router.get("/:id", async (req, res) => {
           as: "blog_author",
           attributes: ["username"],
         },
-        // {
-        //   model: Comment,
-        //   as: "blog_comments",
-        //   include: {
-        //     model: User,
-        //     as: "comment_author",
-        //     attributes: ["username"],
-        //   },
-        // },
       ],
     });
 
@@ -49,79 +39,9 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// COMMENTS ARE NOT BEING PULLED THROUGH
-// router.get("/", async (req, res) => {
-//   try {
-//     const allBlogs = await Blog.findAll({
-//       include: [
-//         {
-//           model: User,
-//           as: "blog_author",
-//           attributes: ["username"],
-//         },
-//         {
-//           model: Comment,
-//           as: "blog_comments",
-//           include: {
-//             model: User,
-//             as: "comment_author",
-//             attributes: ["username"],
-//           },
-//         },
-//       ],
-//     });
-//     const blogData = allBlogs.map((blog) => blog.get({ plain: true }));
-//     res.status(200).json(blogData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// router.get("/:id", async (req, res) => {
-//   try {
-//     const blogData = await Blog.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           as: "blog_author",
-//           attributes: ["username"],
-//         },
-//         {
-//           model: Comment,
-//           as: "blog_comments",
-//           include: {
-//             model: User,
-//             as: "comment_author",
-//             attributes: ["username"],
-//           },
-//         },
-//       ],
-//     });
-
-//     const singleBlogData = blogData.get({ plain: true });
-//     res.status(200).json(singleBlogData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-// router.get("/:id", async (req, res) => {
-//   try {
-//     const blogComments = await Comment.findAll({
-//       where: {
-//         blog_id: req.params.id,
-//       },
-//     });
-//     res.status(200).json(blogComments);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// WORKING
 router.post("/", async (req, res) => {
   try {
     const newBlog = await Blog.create({
-      // user_id: req.body.user_id,
       user_id: req.session.user_id,
       title: req.body.title,
       content: req.body.content,
@@ -132,7 +52,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-// WORKING
 router.put("/:id", async (req, res) => {
   try {
     const updatedBlog = await Blog.update(
@@ -152,7 +71,6 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// WORKING
 router.delete("/:id", async (req, res) => {
   try {
     const deletedBlog = await Blog.destroy({

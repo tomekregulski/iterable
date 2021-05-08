@@ -2,7 +2,6 @@
   <div class="mt-4">
     <h3>{{singleBlogData.title}}</h3>
     <p class="m-0">By: {{singleBlogData.blog_author.username}}</p>
-    <p>{{user_id}}</p>
     <p class="m-0">Posted on: {{format_date singleBlogData.date_created}}</p>
   </div>
   <div class="row">
@@ -15,33 +14,21 @@
 </section>
 <section class="text-center mt-4">
   <h3>Comments:</h3>
-  ON THE VIEW LEVEL
   {{#each blogComments as |comment| }}
   <div class="row">
   <div class="col-4"></div>
-  <div class="text-center mt-3 pt-3 border col-4">
-    <p>From: {{comment_author.username}} {{comment_author.id}} {{user_id}}</p>
+  <div class="text-center mt-3 pt-3 pb-3 border col-4">
+    <p>From: {{comment_author.username}}</p>
     <p>{{content}}</p>
-    <p>{{comment_author.id}}</p>
-    <p>{{user_id}}</p>
-    {{#if (is_equal user_id comment_author.id)}}
-      <p>{{user_id}}</p>
-      <p>{{comment_author.id}}</p>
+    {{#if (is_equal ../user_id comment_author.id)}}
       <div class="mt-4">
         <button class="btn btn-info"><a href="/blogs/admin/edit/{{singleBlogData.id}}" style="color: white">Edit</a></button>
         <button class="btn btn-danger" id="delete-post" value={{singleBlogData.id}}>Delete</button>
       </div>
-      <h2>We did it!</h2>
     {{/if}}
   </div>
   <div class="col-4"></div>
 </div>
-  {{/each}}
-</section>
-<section>
-  PULLING IN FROM PARTIAL LEVEL
-  {{#each blogComments as |comment| }}
-  {{> comments}}
   {{/each}}
 </section>
 {{> post-comment}}

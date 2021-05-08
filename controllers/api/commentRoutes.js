@@ -1,10 +1,6 @@
-// const { Comment, User, Blog } = require("../../models");
-// const router = require("express").Router();
-
 const { Comment } = require("../../models");
 const router = require("express").Router();
 
-// WORKING
 router.get("/", async (req, res) => {
   try {
     const allComments = await Comment.findAll();
@@ -15,7 +11,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// WORKING
 router.post("/", async (req, res) => {
   try {
     const newComment = await Comment.create({
@@ -29,7 +24,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-// WORKING
 router.put("/:id", async (req, res) => {
   try {
     const updatedComment = await Comment.update(
@@ -48,7 +42,6 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// WORKING
 router.delete("/:id", async (req, res) => {
   try {
     const deletedComment = await Comment.destroy({
