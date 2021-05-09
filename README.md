@@ -6,8 +6,8 @@
 - [Installation and Usage](#installation-and-use)
 - [License](#license)
 
-![screenshot-top-of-page](assets/images/demo1.png)
-![screenshot-project-example](assets/images/demo2.png)
+![screenshot-homepage](assets/demo1.png)
+![screenshot-single-blog-view](assets/demo2.png)
 
 # Description
 
