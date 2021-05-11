@@ -20,11 +20,8 @@
   <div class="text-center mt-3 pt-3 pb-3 border col-4">
     <p>From: {{comment_author.username}}</p>
     <p>{{content}}</p>
-    <p>{{id}}</p>
     {{#if (is_equal ../user_id comment_author.id)}}
       <div class="mt-4">
-        <p>{{id}}</p>
-        <p>{{comment.id}}</p>
         <button class="btn btn-info"><a href="" style="color: white">Edit</a></button>
         <button class="btn btn-danger" value={{id}} onClick="deleteComment(this)" id="delete-post">Delete</button>
       </div>
