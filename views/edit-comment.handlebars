@@ -1,0 +1,27 @@
+<div class="row mt-4">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <form class="mt-4">
+      <div class="form-group">
+        <label for="comment-content"><strong>Edit Your Comment:</strong></label>
+        <textarea
+          class="form-control mt-1"
+          id="edit-comment-content"
+          name="comment-content"
+          rows="3"
+        >{{editSingleCommentData.content}}</textarea>
+      </div>
+      <div>
+        <button
+          type="submit"
+          class="btn btn-primary btn-lg"
+          value={{editSingleCommentData.blog_id}}
+          id="submit-edit-comment"
+        >Submit Changes</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-3"></div>
+</div>
+
+<script src="/js/editComment.js"></script>

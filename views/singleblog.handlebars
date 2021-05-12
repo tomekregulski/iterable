@@ -22,7 +22,7 @@
     <p>{{content}}</p>
     {{#if (is_equal ../user_id comment_author.id)}}
       <div class="mt-4">
-        <button class="btn btn-info"><a href="" style="color: white">Edit</a></button>
+        <button class="btn btn-info"><a href="/comments/edit/{{comment.id}}" style="color: white">Edit</a></button>
         <button class="btn btn-danger" value={{id}} onClick="deleteComment(this)" id="delete-post">Delete</button>
       </div>
     {{/if}}
