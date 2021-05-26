@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Blog } = require("../models");
+const compression = require('compression')
 
 router.get("/", async (req, res) => {
   try {
