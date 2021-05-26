@@ -21,7 +21,7 @@ const sess = {
     db: sequelize,
   }),
 };
-
+app.use(compression());
 app.use(session(sess));
 
 const hbs = exphbs.create({ helpers });
@@ -32,7 +32,7 @@ app.set("view engine", "handlebars");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
-app.use(compression());
+
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
