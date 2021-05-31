@@ -13,7 +13,7 @@
 
 This app is built with Node.js, Express, MySQL and Handlebars, and provides a basic blog platform, where multiple users can register, create posts, and interact via comments.
 
-This page has been deployed on Heroku, and can be accessed here: https://evening-depths-19981.herokuapp.com/
+This page is deployed on Heroku, and can be accessed here: https://evening-depths-19981.herokuapp.com/
 
 # Installation and Use
 
