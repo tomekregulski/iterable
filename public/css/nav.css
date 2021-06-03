@@ -1,0 +1,10 @@
+#nav {
+  /* border-bottom: solid 0.5px rgb(41, 140, 215); */
+  border-bottom: solid 0.5px rgb(128, 128, 128);
+  padding-bottom: 10px;
+}
+
+#nav a {
+  /* margin-top: 10px; */
+  /* margin-bottom: 10px; */
+}

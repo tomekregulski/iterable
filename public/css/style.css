@@ -1,7 +1,34 @@
+body {
+  background: rgba(104, 55, 182, 0.187);
+}
 h1 {
-  color: blue;
+  color: rgba(255, 153, 0, 0.803);
+  /* font-size: 68px; */
+  font-size: 32px;
+}
+
+h2 {
+  color: rgb(128, 128, 128);
+  font-size: 18px;
+}
+
+nav a {
+  color: rgba(104, 55, 182, 0.817);
+  font-weight: bold;
+  font-size: 12px;
 }
 
 p {
   margin: 0;
+  font-size: 12px;
+}
+
+.container-text {
+  font-size: 12px;
+}
+
+.welcome-body {
+  /* border-bottom: solid 0.5px rgb(41, 140, 215); */
+  border-bottom: solid 0.5px rgb(128, 128, 128);
+  padding-bottom: 25px;
 }

@@ -1,10 +1,12 @@
-<nav class="d-flex flex-column align-items-center mt-3 flex-md-row justify-content-md-center">
-    <a href="/">Home</a>
+<link rel="stylesheet" type="text/css" href="/css/nav.css">
+
+<nav class="d-flex flex-column align-items-center mt-sm-3 flex-sm-row justify-content-sm-center" id="nav" >
+    <a href="/" class="ml-sm-3 mt-0">Home</a>
     {{#if logged_in}}
-    <a href="" id="logout" class="ml-md-3">Log Out</a>
+    <a href="" id="logout" class="ml-sm-3 mt-0">Log Out</a>
     {{/if}}
     {{#unless logged_in}}
-    <a href="/login" class="ml-md-3">Log In</a>
+    <a href="/login" class="ml-sm-3 mt-0">Log In</a>
     {{/unless}}
-    <a href="/dashboard" class="ml-md-3">Dashboard</a>
+    <a href="/dashboard" class="ml-sm-3 mt-0" id="dashboard">Dashboard</a>
 </nav>
