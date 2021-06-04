@@ -2,19 +2,22 @@
   <div class="col-3"></div>
   <div class="col-6">
     <div class="text-center">
-      <h3>Edit "{{editSingleBlogData.title}}"</h3>
+      <h3 class="d-flex flex-column justify-content-center align-items-center">
+        <span style="color: rgba(104, 55, 182, 0.817);">Edit:</span>
+        <span>"{{editSingleBlogData.title}}"</span>
+      </h3>
     </div>
-    <form class="mt-4">
+    <form class="mt-4" style="color: rgba(104, 55, 182, 0.817);">
       <div class="form-group">
         <label for="blog-title"><strong>Title:</strong></label>
-        <input type="text" class="form-control" id="edit-blog-title" name="blog-title" value="{{editSingleBlogData.title}}">
+        <input type="text" class="form-control" style="border: solid 0.5px rgb(255, 153, 0);" id="edit-blog-title" name="blog-title" value="{{editSingleBlogData.title}}">
       </div>
       <div class="form-group">
         <label for="blog-content"><strong>Content:</strong></label>
-        <textarea class="form-control mt-1" id="edit-blog-content" name="blog-content" rows="3">{{editSingleBlogData.content}}</textarea>
+        <textarea class="form-control mt-1" style="border: solid 0.5px rgb(255, 153, 0);" id="edit-blog-content" name="blog-content" rows="3">{{editSingleBlogData.content}}</textarea>
       </div>
       <div>
-        <button type="submit" class="btn btn-primary btn-lg" id="submit-edit-blog">Submit Changes</button>
+        <button type="submit" class="btn btn-primary btn-lg" id="submit-edit-blog" style="background-color: rgb(255, 153, 0); border: rgb(255, 153, 0);">Submit Changes</button>
       </div>
     </form>
   </div>

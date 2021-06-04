@@ -15,9 +15,11 @@
 </head>
 
 <body class="container-fluid mb-5">
-  <header class="text-center" mt-4"">
-    <h1 class="mt-4"><em>"iterable"</em></h1>
-    {{> nav}}
+  <header class="text-center d-flex flex-sm-row flex-column align-items-sm-baseline align-items-center justify-content-sm-between">
+    <h1 class="mt-4 ml-sm-2"><em>"iterable"</em></h1>
+    <div>
+      {{> nav}}
+    </div>
   </header>
   <main>
     <div data-currentuser="{{user_id}}" id="user" ></div>

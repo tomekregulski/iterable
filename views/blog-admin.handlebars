@@ -6,15 +6,15 @@
     </p>
     <div class="row">
       <div class="col-2"></div>
-      <div class="text-center mt-3 pt-3 border col-8">
+      <div class="text-center mt-3 py-3 col-8" style="border: solid 0.5px rgb(255, 153, 0);">
         <p>{{singleBlogData.content}}</p>
       </div>
       <div class="col-2"></div>
     </div>
   </div>
   <div class="mt-4">
-    <button class="btn btn-info"><a href="/blogs/admin/edit/{{singleBlogData.id}}" style="color: white">Edit</a></button>
-    <button class="btn btn-danger" id="delete-post" value={{singleBlogData.id}}>Delete</button>
+    <button class="btn btn-info" style="background-color: rgba(104, 55, 182, 0.817); border: rgba(104, 55, 182, 0.817);"><a href="/blogs/admin/edit/{{singleBlogData.id}}" style="color: white">Edit</a></button>
+    <button class="btn btn-danger" id="delete-post" value={{singleBlogData.id}} style="background-color: rgb(255, 153, 0); border: rgb(255, 153, 0);">Delete</button>
   </div>
 </section>
 <section>

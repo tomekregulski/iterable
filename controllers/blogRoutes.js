@@ -74,6 +74,13 @@ router.get("/admin/:id", withAuth, async (req, res) => {
     const singleBlogData = blogData.get({ plain: true });
 
     const commentsData = await Comment.findAll({
+      include: [
+        {
+          model: User,
+          as: "comment_author",
+          attributes: ["username"],
+        },
+      ],
       where: {
         blog_id: req.params.id,
       },

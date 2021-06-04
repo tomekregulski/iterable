@@ -1,29 +1,28 @@
 <section class="text-center">
   <div class="mt-4">
-    <h3>{{singleBlogData.title}}</h3>
-    <p class="m-0">By: {{singleBlogData.blog_author.username}}</p>
-    <p class="m-0">Posted on: {{format_date singleBlogData.date_created}}</p>
+    <h3 style="color: rgba(104, 55, 182, 0.817);">{{singleBlogData.title}}</h3>
+    <p class="m-0">Created by {{singleBlogData.blog_author.username}} on {{format_date singleBlogData.date_created}}</p>
   </div>
   <div class="row">
     <div class="col-2"></div>
-    <div class="text-center mt-3 pt-3 border col-8">
+    <div class="text-center mt-3 py-3 col-8" style="border: solid 0.5px rgb(255, 153, 0);">
       <p>{{singleBlogData.content}}</p>
     </div>
     <div class="col-2"></div>
   </div>
 </section>
 <section class="text-center mt-4">
-  <h3>Comments:</h3>
+  <h3 style="color: rgba(104, 55, 182, 0.817);">Comments:</h3>
   {{#each blogComments as |comment| }}
   <div class="row">
   <div class="col-4"></div>
-  <div class="text-center mt-3 pt-3 pb-3 border col-4">
-    <p>From: {{comment_author.username}}</p>
+  <div class="text-center mt-3 pt-3 pb-3 col-4" style="border: solid 0.5px rgb(255, 153, 0);">
+    <p>posted by: {{comment_author.username}}</p>
     <p>{{content}}</p>
     {{#if (is_equal ../user_id comment_author.id)}}
       <div class="mt-4">
-        <button class="btn btn-info"><a href="/comments/edit/{{comment.id}}" style="color: white">Edit</a></button>
-        <button class="btn btn-danger" value={{id}} onClick="deleteComment(this)" id="delete-post">Delete</button>
+        <button class="btn btn-info" style="background-color: rgba(104, 55, 182, 0.817); border: rgba(104, 55, 182, 0.817);"><a href="/comments/edit/{{comment.id}}" style="color: white">Edit</a></button>
+        <button class="btn btn-danger" value={{id}} onClick="deleteComment(this)" id="delete-post" style="background-color: rgb(255, 153, 0); border: rgb(255, 153, 0);">Delete</button>
       </div>
     {{/if}}
   </div>

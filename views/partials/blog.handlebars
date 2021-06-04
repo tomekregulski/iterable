@@ -1,11 +1,12 @@
 {{#each blogs as |blog| }}
 <div class="row">
   <div class="col-md-3"></div>
-  <div class="text-center mx-3 mt-3 col-md-6" style="border: solid 0.5px rgb(255, 153, 0);">
+  <div class="d-flex justify-content-start mx-3 mt-3 col-md-6" style="border: solid 0.5px rgb(255, 153, 0);">
     <div class="mt-2">
       <a href="/blogs/{{id}}"><h2 style="color: rgba(104, 55, 182, 0.817);">{{blog.title}}</h2></a>
-      <p class="mb-0 container-text">Author: {{blog_author.username}}</p>
-      <p class="mb-2 container-text">Created: {{format_date blog.date_created}}</p>
+      {{!-- <p class="mb-0 container-text">Author: {{blog_author.username}}</p>
+      <p class="mb-2 container-text">Created: {{format_date blog.date_created}}</p> --}}
+      <p class="container-text mb-2">Created by <em>{{blog_author.username}}</em> on {{format_date blog.date_created}}</p>
     </div>
   </div>
   <div class="col-md-3"></div>

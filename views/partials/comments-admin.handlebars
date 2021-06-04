@@ -1,10 +1,10 @@
 {{#each blogComments as |comment| }}
 <div class="row">
   <div class="col-4"></div>
-  <div class="text-center mt-3 pt-3 border col-4">
-    <p>Author: {{comment.user_id}}</p>
+  <div class="text-center mt-3 pt-3 col-4" style="border: solid 0.5px rgb(255, 153, 0);">
+    <p>Author: {{comment_author.username}}</p>
     <p>{{comment.content}}</p>
-    <button class="btn btn-danger mb-3 delete-comment" value={{comment.id}} onClick="deleteComment(this)">Delete</button>
+    <button class="btn btn-danger mb-3 mt-2 delete-comment" style="background-color: rgb(255, 153, 0); border: rgb(255, 153, 0);" value={{comment.id}} onClick="deleteComment(this)">Delete</button>
   </div>
   <div class="col-4"></div>
 </div>
