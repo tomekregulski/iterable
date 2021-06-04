@@ -1,12 +1,12 @@
 {{!-- <link rel="stylesheet" type="text/css" href="/css/nav.css"> --}}
 
-<nav class="d-flex flex-column align-items-center mt-sm-3 flex-sm-row justify-content-sm-end pb-2" id="nav" >
-    <a href="/" class="ml-sm-3 mt-0">Home</a>
+<nav class="mt-sm-3 flex-row justify-content-end pb-2" id="nav" >
+    <a href="/" class="mt-0 pr-2">Home</a>
     {{#if logged_in}}
-    <a href="" id="logout" class="ml-sm-3 mt-0">Log Out</a>
+    <a href="" id="logout" class="mt-0 pr-2">Log Out</a>
     {{/if}}
     {{#unless logged_in}}
-    <a href="/login" class="ml-sm-3 mt-0">Log In</a>
+    <a href="/login" class="mt-0 pr-2">Log In</a>
     {{/unless}}
-    <a href="/dashboard" class="ml-sm-3 mt-0 mr-sm-2" id="dashboard">Dashboard</a>
+    <a href="/dashboard" class="mt-0 mr-sm-2" id="dashboard">Dashboard</a>
 </nav>
